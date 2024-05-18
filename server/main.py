@@ -40,8 +40,8 @@ def add_user():
 def edit_user(user_id):
     user = User.query.get_or_404(user_id)
     data = request.get_json()
-    user['name'] = data['name']
-    user['gender'] = data['gender']
+    user.name = data['name']
+    user.gender = data['gender']
     db.session.commit()
     return jsonify({'message': 'success'}), 200
 
